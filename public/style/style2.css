@@ -1,0 +1,289 @@
+/*  Github
+    http : https://github.com/Areapalm/projectadhd.git
+    ssh : git@github.com:Areapalm/projectadhd.git
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../image/bg.jpg");
+  background-size: 100% 100%, auto;
+  background-repeat: auto;
+  background-attachment: fixed;
+
+  color: #fff;
+  font-family: Arial;
+  font-size: 12px;
+}
+
+.header {
+  position: absolute;
+  top: calc(50% - 35px);
+  left: calc(50% - 255px);
+  z-index: 2;
+}
+
+.header div {
+  float: left;
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-size: 35px;
+  font-weight: 200;
+}
+
+.header div span {
+  color: #5379fa !important;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+/*----- Login -----*/
+
+.login {
+  position: absolute;
+  top: calc(50% - 75px);
+  left: calc(50% - 50px);
+  height: 150px;
+  width: 350px;
+  padding: 20px;
+  z-index: 2;
+}
+
+.login input[type="text"] {
+  width: 250px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px;
+}
+
+.login input[type="password"] {
+  width: 250px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 2px;
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 4px;
+  margin-top: 10px;
+}
+
+.login button {
+  width: 250px;
+  height: 35px;
+  background: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+  border-radius: 2px;
+  color: #a18d6c;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 6px;
+  margin-top: 10px;
+}
+
+.login button:hover {
+  opacity: 0.8;
+}
+
+.login button:active {
+  opacity: 0.6;
+}
+
+.login input[type="text"]:focus {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.login input[type="password"]:focus {
+  outline: none;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+}
+
+.login button:focus {
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+::-moz-input-placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/*----- Homepage -----*/
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: "Exo", sans-serif;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4caf50;
+  color: white;
+}
+
+.graph div {
+  top: 4%;
+  left: 6%;
+}
+
+/*----- Profile -----*/
+.profile {
+  padding: 5% 5% 7% 7%;
+}
+
+.children {
+  font-family: "Exo", sans-serif;
+  padding: 2% 2% 2% 2%;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+}
+
+.children input[type="text"] {
+  width: 20%;
+  height: 3%;
+  padding: 5px 5px 5px 5px;
+}
+
+.children input[type="age"] {
+  width: 5%;
+}
+
+/*----- Register -----*/
+
+.children button {
+  width: 250px;
+  height: 35px;
+  background: gray;
+  border: 1px solid black;
+  cursor: pointer;
+  border-radius: 2px;
+  color: #a18d6c;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 6px;
+  margin-top: 20px;
+}
+
+.children button:hover {
+  opacity: 0.8;
+}
+
+.children button:active {
+  opacity: 0.6;
+}
+
+/*----- List Patient -----*/
+
+.findpatient {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-family: "Exo", sans-serif;
+  font-size: 16px;
+}
+.findpatient input[type="text"] {
+  width: 130px;
+  box-sizing: border-box;
+  border: 2px solid gray;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 5px 5px 5px 5px;
+
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+.findpatient input[type="text"]:focus {
+  width: 50%;
+}
+.listpatient {
+  height: auto;
+  width: 100%;
+  left: 0;
+  background-color: white;
+}
+table,
+th,
+td {
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+  color: black;
+}
+th {
+  background-color: steelblue;
+}
+th,
+td {
+  padding: 5px;
+  text-align: left;
+}
+
+/*----- ShowGraph -----*/
+.patient {
+  height: auto;
+  width: 100%;
+  left: 0;
+  background-color: white;
+}
+table,
+th,
+td {
+  border: 1px solid lightgray;
+  border-collapse: collapse;
+  color: black;
+}
+th {
+  background-color: steelblue;
+}
+th,
+td {
+  padding: 5px;
+  text-align: left;
+}

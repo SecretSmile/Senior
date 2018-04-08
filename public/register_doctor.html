@@ -1,0 +1,177 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
+
+<html>
+
+<head>
+   
+    <title>Registration Doctor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/templatemo-style1.css">
+
+</head>
+
+<script type="text/javascript"> 
+ 
+var number = "0123456789";
+var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+ 
+function controlchars(thestr,controlstr)
+{
+	if(controlstr.indexOf(thestr.value.charAt(thestr.value.length - 1)) == -1)
+	{
+		var x=thestr.value.length - 1;
+		thestr.value=thestr.value.substring(0,x)
+	}
+}
+</script>
+
+<body>
+    <!-- MAIN CONTENT -->
+    <form method="POST"action="saveDoctor.do" commandName="doctor">
+    <div class="main-content">
+        <!-- ABOUT -->
+        <div class="page-section" id="about">
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 class="widget-title" style="text-align:center;">Registration Form For Doctor</h4>
+                    <div class="about-image">
+                    </div>
+                </div>
+            </div>
+
+			<input type="hidden" name="doctorId" maxlength="30" value="${founddoc.doctorId}"/>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="imgupload">
+                        <center><img src="image/people.png" style="height:200px; width:200px;"></center>
+                    </div>
+                 
+                </div>
+                <div class="col-md-7">
+
+                    <div class="row" style="padding-bottom:3%">
+                        <div class="col-md-2">
+                            Username
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" name="druser" maxlength="30" value="${founddoc.druser}" style="width:250px;">
+                            <br> (max 30 characters a-z and A-Z)
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-bottom:3%">
+                        <div class="col-md-2">
+                            Password
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" name="drpass" maxlength="10"  value="${founddoc.drpass}" style="width:250px;">
+                            <br> (max 30 characters a-z and A-Z)
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-bottom:3%">
+                        <div class="col-md-2">
+                            Firstname
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" name="drfName" onkeyup="javascript:controlchars(this,chars);" maxlength="30" value="${founddoc.drfName}" style="width:250px;">
+                            <br> (max 30 characters a-z and A-Z)
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-bottom:3%">
+                        <div class="col-md-2">
+                            Lastname
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" name="drlName" onkeyup="javascript:controlchars(this,chars);" maxlength="30" value="${founddoc.drlName}" style="width:250px;">
+                            <br> (max 30 characters a-z and A-Z)
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-bottom:3%">
+                        <div class="col-md-2">
+                            Department
+                        </div>
+                        <div class="col-md-10">
+                            <td>
+                                <select name="department" id="Department" style="width:250px;">
+                                 <option value="${founddoc.department}">${founddoc.department}</option>
+                                    <option value="Child Psychiatrist">Child Psychiatrist</option>
+                                </select>
+                            </td>
+                        </div>
+                    </div>
+                    <div class="row" style="padding-bottom:3%">
+                        <div class="col-md-2">
+                            Tel
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" name="drTel" onkeyup="javascript:controlchars(this,number);" maxlength="10" value="${founddoc.drTel}" style="width:250px;">
+                            <br> (10 digit number)
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-bottom:3%">
+                        <div class="col-md-2">
+                            Age
+                        </div>
+                        <div class="col-md-10">
+                            <td>
+                                <select name="age" id="Age" style="padding-left:10px; padding-right:10px;">
+                                 <option value="${founddoc.age}">${founddoc.age}</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                    <option value="32">32</option>
+                                    <option value="33">33</option>
+                                    <option value="34">34</option>
+                                    <option value="35">35</option>
+                                    <option value="36">36</option>
+                                    <option value="37">37</option>
+                                    <option value="38">38</option>
+                                    <option value="39">39</option>
+                                    <option value="40">40</option>
+                                    <option value="41">41</option>
+                                    <option value="42">42</option>
+                                    <option value="43">43</option>
+                                    <option value="44">44</option>
+                                    <option value="45">45</option>
+                                </select>
+                              </td>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3">
+                            
+                     
+                    </div>
+                    <div class="col-md-3">
+                    		 <input type="submit" class="btn btn-success" value="Submit" />
+                            <input type="reset" class="btn btn-info"  value="Reset"/>
+                      		<a href="listdoc.do"><input type="button"  class="btn btn-default"  value="Close"/></a>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+        </div>
+   
+
+    <!-- #about -->
+  
+   
+ </div>
+ </form>
+</body>
+
+</html>

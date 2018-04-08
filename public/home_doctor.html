@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>ADHD Monitoring</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrappatient.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/stylespatient.css" rel="stylesheet">
+	</head>
+	<body>
+      <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">ADHD Monitoring</a>
+        </div>
+        <div class="navbar-collapse collapse"></div>
+      </div>
+      </nav>
+      <div class="container-fluid">   
+      <div class="row row-offcanvas row-offcanvas-left">
+         <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">           
+            <ul class="nav nav-sidebar">
+              <li class="active"><a href="#">Overview</a></li>
+              <li><a href="profile_doctor.html" >Profile</a></li>
+              <li><a href="ListPatient_doctor.html" >List All Patient</a></li>
+              <li><a href="mycase_doctor.html" >My case</a></li>
+              <li><a href="javascript:logout();" >Logout</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-md-10 main">
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+		      <h1 class="page-header"> About Me </h1>
+          <div class="row placeholders">
+              <div id="loading">
+              <div class="bg_load" ></div>
+              <div class="wrapper"  >
+                  <div class="inner" >
+                      <span>L</span>
+                      <span>o</span>
+                      <span>a</span>
+                      <span>d</span>
+                      <span>i</span>
+                      <span>n</span>
+                      <span>g</span>
+                  </div>
+              </div>
+            </div>
+            <div class="col-xs-6 col-sm-3 placeholder text-center" align="left" id="profiledoctor">
+            </div>
+          </div>
+          <hr>
+          <h2 class="sub-header">List Patient</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#id</th>
+                  <th>First name</th>
+                  <th>Last name</th>
+                  <th>Nickname</th>
+                  <th>Birthday</th>
+                  <th>View</th>
+                </tr>
+              </thead>
+              <tbody id="profile"></tbody>
+            </table>
+          </div>
+      </div>
+	</div>
+  </div>
+    <footer></footer>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+    <script src="js/scriptspatient.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="javascript/home_doctor.js"></script>
+	</body>
+</html>

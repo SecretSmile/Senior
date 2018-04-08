@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="UTF-8" />
+<title>Graph for Admin</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<meta content="" name="description" />
+<meta content="" name="author" />
+<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/theme.css" />
+<link rel="stylesheet" href="assets/css/MoneAdmin.css" />
+<link rel="stylesheet"
+	href="assets/plugins/Font-Awesome/css/font-awesome.css" />
+<!--END GLOBAL STYLES -->
+
+<!-- PAGE LEVEL STYLES -->
+<link href="assets/css/layout2.css" rel="stylesheet" />
+<link href="assets/plugins/flot/examples/examples.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/plugins/timeline/timeline.css" />
+<!-- END PAGE LEVEL  STYLES -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+<script language="javascript">
+
+var bloodpressure = [];
+var detail = {};
+var date_bp  ;
+var maxbp;
+var minbp;
+<c:forEach items="${bloodpressure}" var="bp">
+var max =parseInt("${bp.bp_maxresult}");
+var min =parseInt("${bp.bp_minresult}");
+date_bp=new Date("${bp.bp_date}");
+var u = [min,max,min,max];
+bloodpressure.push({
+	x : parseInt("${bp.bp_time}"),
+	y : u
+	
+});
+console.log(u);
+</c:forEach>
+
+	window.onload = function() {
+		var chart = new CanvasJS.Chart("chartContainer4", {
+			theme : "light2",
+			animationEnabled : true,
+
+			title : {
+				text : "Blood Pressure"
+			},
+			axisX : {
+				interval : 1
+			},
+			axisY : {
+				includeZero : false,
+				title : "Millimeters of mercury (mmHg)"
+			},
+			toolTip :{
+				 shared: false
+			},
+			data : [ {
+				type : "candlestick",
+				name : "Blood Pressure",
+				toolTipContent:"Time : {x} <br/>Bloodpressure : {y[1]}/{y[0]}",
+				dataPoints : bloodpressure
+			} ]
+		});
+		chart.render();
+
+	};
+</script>
+</head>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class="padTop53 ">
+<style>
+table {
+	border-collapse: collapse;
+	width: 100%
+}
+
+th, td {
+	padding: 8px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+</style>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<div id="wrap">
+		<div id="top">
+			<nav class="navbar navbar-inverse navbar-fixed-top "
+				style="padding-top: 10px;">
+				<a data-original-title="Show/Hide Menu" data-placement="bottom"
+					data-tooltip="tooltip"
+					class="accordion-toggle btn btn-primary btn-sm visible-xs"
+					data-toggle="collapse" href="#menu" id="menu-toggle"> <i
+					class="icon-align-justify"></i>
+				</a>
+				<!-- LOGO SECTION -->
+				<header class="navbar-header">
+
+					<a href="index.html" class="navbar-brand"> <img
+						src="assets/img/logo1.png" alt="" />
+
+					</a>
+				</header>
+				<!-- END LOGO SECTION -->
+				<ul class="nav navbar-top-links navbar-right">
+					<!--ADMIN SETTINGS SECTIONS -->
+
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#"> <i class="icon-user "></i>&nbsp;
+							<i class="icon-chevron-down "></i>
+					</a>
+
+						<ul class="dropdown-menu dropdown-user">
+								<li> <a href="bhome.do">
+                        <i class="icon-signin"></i>Back Page </a></li>
+						</ul></li>
+					<!--END ADMIN SETTINGS -->
+				</ul>
+			</nav>
+		</div>
+		<!-- END HEADER SECTION -->
+
+		<!-- MENU SECTION -->
+		<div id="left">
+			<div class="media user-media well-small">
+				<a class="user-link" href="#"> <img
+					class="media-object img-thumbnail user-img" alt="User Picture"
+					src="assets/img/user.gif" />
+				</a> <br />
+				<div class="media-body">
+					<h5 class="media-heading">Joe Romlin</h5>
+					<ul class="list-unstyled user-info">
+
+						<li><a class="btn btn-success btn-xs btn-circle"
+							style="width: 10px; height: 12px;"></a> Online</li>
+
+					</ul>
+				</div>
+				<br />
+			</div>
+
+			<ul id="menu" class="collapse">
+
+				<li class="panel"><a href="#" data-parent="#menu"
+					data-toggle="collapse" class="accordion-toggle"
+					data-target="#chart-nav"> <i class="icon-bar-chart"></i> Charts
+
+						<span class="pull-right"> <i class="icon-angle-left"></i>
+					</span> &nbsp; <span class="label label-danger">4</span>&nbsp;
+				</a>
+					<ul class="collapse" id="chart-nav">
+
+						<li ><a href="listheartratebyadmin.do?id=${patient.patientId}"> <i
+								class="icon-angle-right"></i> Heart Rate Charts
+						</a></li>
+						<li ><a href="listcalorieburnbyadmin.do?id=${patient.patientId}"> <i
+								class="icon-angle-right"></i> Calories Burn Charts
+						</a></li>
+						<li><a href="listpedometerbyadmin.do?id=${patient.patientId}"> <i
+								class="icon-angle-right"></i> Pedometer Charts
+						</a></li>
+						<li class="active"><a href="#"> <i
+								class="icon-angle-right"></i> Blood Pressure Charts
+						</a></li>
+					</ul></li>
+
+					<li> <a href="bhome.do">
+                        <i class="icon-signin"></i>Back Page </a></li>
+                <li> <a href="login.do">
+                        <i class="icon-signin"></i>Logout </a></li>
+
+			</ul>
+
+		</div>
+		<!--END MENU SECTION -->
+
+		<!--PAGE CONTENT -->
+		<div id="content">
+			<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+			<div class="inner" style="min-height: 700px;">
+				<div class="row">
+					<div class="col-lg-12">
+						<h1 style="text-align: center">Blood Pressure Graph</h1>
+					</div>
+				</div>
+				<hr />
+				<!--END BLOCK SECTION -->
+
+				<!-- Start Blood Perssure -->
+				<div class="page-section" id="BloodPressure">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="graph">
+								<div id="chartContainer4"
+									style="height: 60%; width: auto; border: 1px solid black;"></div>
+							</div>
+						</div>
+					</div>
+
+					<br> <br> <br> <br> <br> <br> <br>
+					<br> <br> <br> <br> <br> <br> <br>
+					<br> <br> <br> <br>
+					<br> <br> <br> <br> <br> <br> <br>
+					<div class="row">
+						<div class="col-md-12">
+							<table border="1">
+								<tr bgcolor="lightgray">
+									<th colspan="3" style="font-size: 18px">Blood Pressure</th>
+								</tr>
+								<tr bgcolor="#f5f5f5">
+									<th>Time</th>
+									<th>Minimun Result</th>
+									<th>Maximun Result</th>
+								</tr>
+								<c:forEach items="${bloodpressure}" var="bp">
+									<tr>
+										<td>${bp.bp_time}</td>
+										<td>${bp.bp_minresult}</td>
+										<td>${bp.bp_maxresult}</td>
+									</tr>
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="assets/plugins/jquery-2.0.3.min.js"></script>
+		<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+		<script src="assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+		<script src="assets/plugins/flot/jquery.flot.js"></script>
+		<script src="assets/plugins/flot/jquery.flot.resize.js"></script>
+		<script src="assets/plugins/flot/jquery.flot.time.js"></script>
+		<script src="assets/plugins/flot/jquery.flot.stack.js"></script>
+		<script src="assets/js/for_index.js"></script>
+</body>
+</html>

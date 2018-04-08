@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>Profile Child</title>
+<link href="styleparent/css/bootstrap.min.css" rel="stylesheet">
+<link href="styleparent/css/plugins.css" rel="stylesheet">
+<link href="styleparent/css/prettify.css" rel="stylesheet">
+<link href="styleparent/style.css" rel="stylesheet">
+<link href="styleparent/css/color/green.css" rel="stylesheet">
+<link href="styleparent/type/fontello.css" rel="stylesheet">
+<link href="styleparent/type/budicons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<link rel="stylesheet" href="css/demo.css"/>
+<link rel="stylesheet" href="css/theme2.css"/>
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+      <script src="style/js/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+      
+	  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+      <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+  
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+            ['Year', 'Sales', 'Expenses'],
+            ['2004',  1000,      400],
+            ['2005',  1170,      460],
+            ['2006',  660,       1120],
+            ['2007',  1030,      540]
+          ]);
+  
+          var options = {
+            title: 'Company Performance',
+            curveType: 'function',
+            legend: { position: 'bottom' }
+          };
+  
+          var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+  
+          chart.draw(data, options);
+        }
+      </script>
+</head>
+<body class="full-layout">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script src="graph/heartrate.js"></script>
+    <script src="graph/calorieburn.js"></script>
+    <script src="graph/pedometer.js"></script>
+    <script src="graph/bloodpressure.js"></script>
+<div id="preloader"><div id="status"><div class="spinner"></div></div></div>
+<div class="body-wrapper">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar-header"> <a class="btn responsive-menu" data-toggle="collapse" data-target=".navbar-collapse"><i></i></a>
+      <div class="navbar-brand text-center"> <a href="#" onclick="back();" class="hint--right" data-hint="back"><i class="budicon-arrow-left-1"></i><span></span></a></div>
+    
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="current"><a href="#home" class="hint--right" data-hint="Home"><i class="budicon-home-1"></i><span>Welcome</span></a></li>		
+        <li><a href="#about" class="hint--right" data-hint="About"><i class="budicon-author"></i><span>About</span></a></li>
+		<li><a href="#calendar" class="hint--right" data-hint="Calendar"><i class="budicon-date-1"></i><span>Calendar</span></a></li>
+		<li><a href="#heartrate" class="hint--right" data-hint="Heart Rate"><i class="icon-heart-empty-1"></i><span>Heart Rate</span></a></li>
+		<li><a href="#calories" class="hint--right" data-hint="Calories Burned"><i class="budicon-fire"></i><span>Calories Burned</span></a></li>
+		<li><a href="#pedometer" class="hint--right" data-hint="Pedometer"><i class="budicon-timer"></i><span>Pedometer</span></a></li>
+		<li><a href="#bloodpressure" class="hint--right" data-hint="Blood Pressure"><i class="icon-signal-1"></i><span>Blood Pressure</span></a></li>
+        <li><a href="#contact" class="hint--right" data-hint="Contact Me"><i class="budicon-profile"></i><span>Contact Me</span></a></li>
+		<li><a href="#" onclick="logout();" class="hint--right" data-hint="Logout"><i class="icon-logout-1"></i><span>Logout</span></a></li>
+      </ul>
+    </div>
+
+    <div id="elsewhere" style="display:none;">
+      <h1>Me, Elsewhere</h1>
+      <div class="divide20"></div>
+      <ul class="social">
+        <li><a href="#"><i class="icon-s-twitter"></i></a></li>
+        <li><a href="#"><i class="icon-s-facebook"></i></a></li>
+        <li><a href="#"><i class="icon-s-instagram"></i></a></li>
+        <li><a href="#"><i class="icon-s-flickr"></i></a></li>
+        <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
+        <li><a href="#"><i class="icon-s-linkedin"></i></a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <section id="home" class="naked">
+    <div class="fullscreenbanner-container revolution">
+      <div class="fullscreenbanner">
+        <ul>
+          <li data-transition="fade"> <img src="styleparent/images/dummy.png"  alt="slidebg1" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="repeat">
+            <h1 class="tp-caption caption large sfb" data-x="center" style="color:black;" data-y="center" data-voffset="-25" data-speed="900" data-start="1000" data-endspeed="100" data-easing="Sine.easeOut">ADHD Monitoring | Personal Profile</h1>
+            <div class="tp-caption small tp-fade fadeout tp-resizeme" data-x="center" data-y="center" data-voffset="25" data-speed="100"
+			data-start="1500"
+			data-easing="Power4.easeOut"
+			data-splitin="chars"
+			data-splitout="chars"
+			data-elementdelay="0.03"
+			data-endelementdelay="0"
+			data-endspeed="100"
+			data-endeasing="Power1.easeOut"
+			style="z-index: 3; max-width: auto; max-height: auto; white-space: nowrap; color:black;">This web site for take care your child.</div>
+            <div class="arrow smooth"><a href="#about"><i class="icon-down-open-big"></i></a></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <section id="about" >
+      <div class="box">
+        <h2 class="section-title pull-left">About</h2>
+        <div id="filters-container" class="cbp-l-filters-alignRight pull-right">
+          <div data-filter=".child" class="cbp-filter-item-custom-active cbp-filter-item-custom btn">CHILD</div>
+          <div data-filter=".father" class="cbp-filter-item-custom btn">FATHER</div>
+          <div data-filter=".mother" class="cbp-filter-item-custom btn">MOTHER</div>
+        </div>
+        <div class="clearfix"></div>
+        <div id="grid-container" class="cbp-l-grid-masonry">
+          <ul>
+            <li class="cbp-item frame child"> <a class="cbp-caption cbp-singlePage" href="ajax/post1.html">
+             
+              <div class="col-md-4 col-sm-6">
+                <div class="icon"> <i class="budicon-gender-female icn"></i> </div>
+                <!-- /.icon -->
+                <div class="text">
+                  <h5>birth Photography</h5>
+                  <p>Vestibulum id ligula porta euismod semper. Aenean lacinia bibendum vestibulum. Cum sociis natoque.</p>
+          
+                </div>
+                <!-- /.text --> 
+              </div>
+              </a> 
+            </li>
+            <li class="cbp-item frame father"> <a class="cbp-caption cbp-singlePage" href="ajax/post2.html">
+              <div class="cbp-caption-defaultWrap"> <img src="styleparent/images/art/pm1.jpg" alt=""> </div>
+              <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <div class="cbp-l-caption-title">architecture 2</div>
+                  </div>
+                </div>
+              </div>
+              </a> 
+            </li>
+            <li class="cbp-item frame mother"> <a class="cbp-caption cbp-singlePage" href="ajax/post3.html">
+              <div class="cbp-caption-defaultWrap"> <img src="styleparent/images/art/pp1.jpg" alt=""> </div>
+              <div class="cbp-caption-activeWrap">
+                <div class="cbp-l-caption-alignCenter">
+                  <div class="cbp-l-caption-body">
+                    <div class="cbp-l-caption-title">Multiple Images</div>
+                  </div>
+                </div>
+              </div>
+              </a> 
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+	
+    <section id="calendar">
+      <div class="box">       
+        <h2 class="section-title pull-left">Calendar</h2>
+        <div class="clearfix"></div>
+        <div class="row">
+                <div id="caleandar"   class="cbp-l-filters-alignLeft pull-left"></div>                
+                <div id="curve_chart" style="width: 60%; height: 100%"  class="cbp-l-filters-alignRight pull-right"></div>
+              </div>
+      </div>
+      </div>
+    </section>
+    
+    <section id="heartrate">
+      <div class="box">
+        <h2 class="section-title">Heart Rate</h2>
+        <div class="row">
+            <div id="chart_heartrate"></div>
+	      </div>
+      </div>
+    </section>
+	
+    <section id="calories">
+      <div class="box">
+        <h2 class="section-title">Calories Burn</h2>
+        <div class="row">
+            <div id="chart_calorieburn"></div>
+	     </div>
+      </div>
+    </section>
+    
+	
+    <section id="pedometer">
+      <div class="box">
+        <h2 class="section-title">Pedometer</h2>
+        <div class="row">
+            <div id="chart_pedometer"></div>
+          </div>
+        </div>
+    </section>
+	
+    <section id="bloodpressure"> 
+      <div class="box">
+        <h2 class="section-title">Blood Pressure</h2><br>
+        <div class="row">
+            <div id="chart_bloodpressure" style="width: 900px; height: 500px;"></div>
+        </div>
+    </section>
+	
+    <section id="contact">
+      <div class="box">
+        <h2 class="section-title">PLACE TO TALK WITH ME</h2>
+        <p>Mae Fah Luang University</p>
+        <div class="divide20"></div>
+        <div class="row text-center services-2">
+          <div class="col-md-3 col-sm-6"> <i class="budicon-map"></i>
+            <p>333 Moo1, Thasud, Muang,  <br />
+              Chiang Rai 57100</p>
+          </div>
+          <div class="col-md-3 col-sm-6"> <i class="budicon-telephone"></i>
+            <p>0-5391-6000, <br />
+             0-5391-7034</p>
+          </div>
+        </div>
+        <div class="divide30"></div>
+        <div class="form-container">
+          <div class="response alert alert-success"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer box">
+      <p class="pull-left">? 2015 Lumos. All rights reserved. Theme by <a href="https://elemisfreebies.com">elemis</a>.</p>
+      <ul class="social pull-right">
+        <li><a href="#"><i class="icon-s-rss"></i></a></li>
+        <li><a href="#"><i class="icon-s-twitter"></i></a></li>
+        <li><a href="#"><i class="icon-s-facebook"></i></a></li>
+        <li><a href="#"><i class="icon-s-dribbble"></i></a></li>
+        <li><a href="#"><i class="icon-s-pinterest"></i></a></li>
+        <li><a href="#"><i class="icon-s-instagram"></i></a></li>
+        <li><a href="#"><i class="icon-s-vimeo"></i></a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </footer>    
+  </div>
+</div>
+
+<script src="styleparent/js/jquery.min.js"></script> 
+<script src="styleparent/js/bootstrap.min.js"></script> 
+<script src="styleparent/js/jquery.themepunch.tools.min.js"></script> 
+<script src="styleparent/js/classie.js"></script> 
+<script src="styleparent/js/plugins.js"></script> 
+<script src="styleparent/js/scripts.js"></script>  
+<script>
+	$.backstretch(["styleparent/images/art/b.jpg"]);
+</script>
+<script type="text/javascript" src="js/caleandar.js"></script>
+<script type="text/javascript" src="js/demo.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+<script  src="javascript/profile_parent.js"></script>
+</body>
+</html>

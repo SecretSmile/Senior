@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Graph for Doctor</title>
+<meta name="generator" content="Bootply" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<link href="css/bootstrappatient.min.css" rel="stylesheet">
+<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+<link href="css/stylespatient.css" rel="stylesheet">
+<script language="javascript">
+	var heartrate = [];
+	// <c:forEach items="${heartrate}" var="hr">
+	// heartrate.push({
+	// 	x : parseInt("${hr.hr_time}"),
+	// 	y : parseInt("${hr.hr_result}")
+	// });
+	// </c:forEach>
+
+	window.onload = function() {
+		var chart = new CanvasJS.Chart("chartContainer1", {
+			theme : "light2",
+			animationEnabled : true,
+
+			title : {
+				text : "Heart Rate"
+			},
+			axisX : {
+				interval : 1,
+			},
+			axisY : {
+				title : "Heart Per Minute (bpm)"
+			},
+
+			data : [ {
+				type : "line",
+				markerSize : 12,
+				color : "blue",
+				dataPoints : heartrate
+			} ]
+		});
+		chart.render();
+	};
+</script>
+</head>
+<body>
+<style>
+table {
+	border-collapse: collapse;
+	width: 100%
+}
+
+th, td {
+	padding: 8px;
+	text-align: center;
+	border-bottom: 1px solid #ddd;
+}
+</style>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="home_doctor">ADHD Monitoring</a>
+			</div>
+			<div class="navbar-collapse collapse"></div>
+		</div>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row row-offcanvas row-offcanvas-left">
+			<div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar"
+				role="navigation">
+				<ul class="nav nav-sidebar">
+					<li class="active"><a href="#">Heart Rate</a></li>
+					<li><a href="listbloodpressurebydoctor.do?id=${patient.patientId}&&doctorid=${docid}" >Blood Pressure</a></li>
+					<li><a href="listpedometerbydoctor.do?id=${patient.patientId}&&doctorid=${docid}">Pedometer</a></li>
+					<li ><a  href="listcalorieburnbydoctor.do?id=${patient.patientId}&&doctorid=${docid}">Caloriesburn</a></li>
+					<li><a href="profiledoctor.do?doctorid=${docid}">Back</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-9 col-md-10 main">
+				<p class="visible-xs">
+					<button type="button" class="btn btn-primary btn-xs"
+						data-toggle="offcanvas">
+						<i class="glyphicon glyphicon-chevron-left"></i>
+					</button>
+				</p>
+				<hr>
+
+				<h2 class="sub-header">Detail Patient</h2>
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>#id</th>
+								<th>First name</th>
+								<th>Last name</th>
+								<th>Nickname</th>
+								<th>Birthday</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr>
+									<td>${patient.patientId}</td>
+									<td>${patient.patfName}</td>
+									<td>${patient.patlName}</td>
+									<td>${patient.parType}</td>
+									<td>${patient.bDay}</td>
+								</tr>
+						</tbody>
+					</table>
+				</div>
+
+			<!-- Start Heartrate -->
+				<div class="page-section" id="heartrate">
+					<div class="row">
+						<div class="col-md-12">
+
+							<div class="graph">
+								<div id="chartContainer1"
+									style="height: 60%; width: auto; border: 1px solid black;"></div>
+							</div>
+						</div>
+					</div>
+
+					<br> <br> <br> <br> <br> <br> <br>
+					<br> <br> <br> <br> <br> <br> <br>
+					<br> <br> <br> <br><br> <br> <br> <br> <br> <br> <br>
+					<br> <br> <br> 
+					<div class="row">
+						<div class="col-md-12">
+							<table border="1">
+								<tr bgcolor="lightgray">
+									<th colspan="3" style="font-size: 18px">Heart Rate</th>
+								</tr>
+								<tr bgcolor="#f5f5f5">
+									<th>Date</th>
+									<th>Time</th>
+									<th>Result</th>
+								</tr>
+								<c:forEach items="${heartrate}" var="hr">
+									<tr>
+									<td>${hr.hr_date}</td>
+										<td>${hr.hr_time}</td>
+										<td>${hr.hr_result}</td>
+									</tr>
+								</c:forEach>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p class="pull-right">©2018 Company</p>
+	</footer>
+
+	<!-- script references -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="javascript/graph_doctor.js"></script>
+</body>
+</html>

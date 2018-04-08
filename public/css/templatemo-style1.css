@@ -1,0 +1,90 @@
+@font-face {
+  font-family: "robotolight";
+  src: url("../fonts/Roboto-Light-webfont.eot");
+  src: url("../fonts/Roboto-Light-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/Roboto-Light-webfont.woff") format("woff"),
+    url("../fonts/Roboto-Light-webfont.ttf") format("truetype"),
+    url("../fonts/Roboto-Light-webfont.svg#robotolight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "robotoregular";
+  src: url("../fonts/Roboto-Regular-webfont.eot");
+  src: url("../fonts/Roboto-Regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/Roboto-Regular-webfont.woff") format("woff"),
+    url("../fonts/Roboto-Regular-webfont.ttf") format("truetype"),
+    url("../fonts/Roboto-Regular-webfont.svg#robotoregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "robotobold";
+  src: url("../fonts/Roboto-Bold-webfont.eot");
+  src: url("../fonts/Roboto-Bold-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/Roboto-Bold-webfont.woff") format("woff"),
+    url("../fonts/Roboto-Bold-webfont.ttf") format("truetype"),
+    url("../fonts/Roboto-Bold-webfont.svg#robotobold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/*---------------------------------------------------------
+ 2. Basic Style
+-------------------------------------------------------- */
+html {
+    padding: 3.5% 10%;
+    background-image: url("../image/bg.jpg");
+    background-size: 100% 100%, auto;
+}
+
+body {
+  font-size: 14px;
+  line-height: 24px;
+  color: #777777;
+  font-family: "robotoregular";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: #555555;
+}
+
+h4.widget-title {
+  font-size: 16px;
+  font-family: "robotobold";
+  text-transform: uppercase;
+}
+
+hr {
+  position: relative;
+  outline: 0;
+  border: 0;
+  width: 100%;
+  height: 4px;
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+.page-section {
+  padding: 5%;
+}
+
+/*---------------------------------------------------------
+ 4. Main Content
+-------------------------------------------------------- */
+/*------ about us ------ */
+.about-image {
+  overflow: hidden;
+  border: 4px solid #dddddd;
+  margin-bottom: 40px;
+}
+.about-image img {
+  width: 100%;
+  display: block;
+}

@@ -1,0 +1,26 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/login_adhd.html"
+      }
+    ], "cleanUrls": true,
+  "headers": [{
+    "source" : "**/*.@(js|html)",
+    "headers" : [ {
+      "key" : "Cache-Control",
+      "value" : "max-age=0"
+    } ]
+  }]
+  }
+}

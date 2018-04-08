@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>ADHD Monitoring</title>
+		<meta name="generator" content="Bootply" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href="css/bootstrappatient.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="css/stylespatient.css" rel="stylesheet">
+	</head>
+	<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">ADHD Monitoring</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          
+          
+        </div>
+      </div>
+</nav>
+
+<div class="container-fluid">
+   
+      <div class="row row-offcanvas row-offcanvas-left">
+          
+         <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">           
+            <ul class="nav nav-sidebar">
+              <li ><a href="home_doctor.html">Overview</a></li>
+              <li class="active"><a href="#">Profile</a></li>
+              <li><a href="ListPatient_doctor.html" >List All Patient</a></li>
+              <li><a href="mycase_doctor.html" >My case</a></li>
+              <li><a href="javascript:logout();" >Logout</a></li>
+            </ul>
+        </div>
+        
+        <div class="col-sm-9 col-md-10 main">
+          <p class="visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+          </p>
+          
+          <div class="row placeholders"> <div class="col-xs-6 col-sm-3 placeholder text-center" align="left"></div>
+          
+          <hr>
+
+          <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Profile Doctor</h3>
+            </div>
+
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"></div>
+                <div class=" col-md-9 col-lg-9 "> 
+                    <div id="loading">
+                        <div class="bg_load" ></div>
+                        <div class="wrapper"  >
+                            <div class="inner" >
+                                <span>L</span>
+                                <span>o</span>
+                                <span>a</span>
+                                <span>d</span>
+                                <span>i</span>
+                                <span>n</span>
+                                <span>g</span>
+                            </div>
+                        </div>
+                      </div>
+                  <table class="table table-user-information">
+                    <tbody id="doctordata">           
+                    </tbody>
+                  </table>
+                  <a href="javascript:editdotor();" class="btn btn-primary" >EDIT PROFILE</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+	    </div>
+    </div>
+    
+    <!--My modal-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" align="center">Edit My Profile</h4>
+          </div>
+          <div class="modal-body">
+            <form role="form">
+              <div class="form-group">
+                          <label for="id">
+                              <span class=""></span>My Id</label>
+                          <input type="text" class="form-control" id="id"  disabled>
+              </div>
+              <div class="form-group">
+                  <label for="firstname">
+                      <span class=""></span> Firstname</label>
+                  <input type="text" class="form-control" id="firstname" placeholder="Enter Firstname">
+              </div>
+              <div class="form-group">
+                  <label for="lastname">
+                      <span class=""></span> Lastname</label>
+                  <input type="text" class="form-control" id="lastname" placeholder="Enter Lastname">
+              </div>
+              <div class="form-group">
+                  <label for="Telephone">
+                      <span class=""></span> Telephone</label>
+                  <input type="text" class="form-control" id="Telephone" placeholder="Enter Telephone">
+              </div>
+              <div class="form-group">
+                <label for="bb">
+                    <span class=""></span>BirthDay</label>
+                <input type="date" class="form-control" id="bb"  >
+            </div>
+              <div class="form-group">
+                      <label for="department">
+                          <span class=""></span>Department</label>
+                      <input type="text" class="form-control" id="department"  disabled>
+                  </div>
+          </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" onclick="saveChanges()">Save changes</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+
+    <footer></footer>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+    <script src="js/scriptspatient.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="javascript/profile_doctor.js"></script>
+	</body>
+</html>

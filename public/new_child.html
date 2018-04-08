@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>NEW PATIENTS</title>
+      <link rel="stylesheet" href="css/new.css">
+      <script>
+      window.onload = function() {
+    	  $('#date').datepicker({ dateFormat: 'dd-mm-yy' }).val();
+      }</script>
+     
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+</head>
+
+<script type="text/javascript"> 
+ 
+var number = "0123456789";
+var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+ 
+function controlchars(thestr,controlstr)
+{
+	if(controlstr.indexOf(thestr.value.charAt(thestr.value.length - 1)) == -1)
+	{
+		var x=thestr.value.length - 1;
+		thestr.value=thestr.value.substring(0,x)
+	}
+}
+</script>
+
+<body>
+  <div class="wrapper">
+	<div class="container">
+		<h1>ADD NEW PATIENT AND PARENT</h1>
+		
+		<form class="form" method="POST"action="savePatientnew.do" commandName="patient">
+			<input name="patfName" onkeyup="javascript:controlchars(this,chars);" maxlength="30" type="text" placeholder="Firstname"> (max 30 characters a-z and A-Z)
+			<input name="patlName" onkeyup="javascript:controlchars(this,chars);" maxlength="30" type="text" placeholder="Lastname"> (max 30 characters a-z and A-Z)
+			<input name="parType" onkeyup="javascript:controlchars(this,chars);" maxlength="30" type="text" placeholder="Nickname"> (max 30 characters a-z and A-Z)
+			<input name="bDay" type="date"id="date" data-date-format="DD MMMM YYYY" placeholder="Birthday" >
+<label>Gender :</label>
+ <select name="gender">
+  <option  name="gender" value="Male">Male</option>
+  <option  name="gender" value="Female">Female</option>
+</select>
+<br>
+
+<button type="submit">NEXT</button>
+ </form>
+	</div>
+	
+	<ul class="bg-bubbles">
+		<li>ADHD</li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li>ADHD</li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script  src="js/new.js"></script>
+
+</body>
+</html>
