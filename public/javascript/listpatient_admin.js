@@ -18,6 +18,7 @@
              var k = userpatient.val();
              if(k.who=="parent"){
               var searchall = document.getElementById('searchall').value;
+              
               if(searchall =='' ){
                const  dataprofile = firebase.database().ref('dataprofile/'+k.id);           
                dataprofile.on('value', patient=>{    
@@ -41,7 +42,7 @@
                    profile += "Birthday : "+weekday[d.getDay()]+" "+d.getDate()+" "+month_name[d.getMonth()] +" "+d.getFullYear()+ "<br>";
                    profile += "Age : "+age + "<br>";
                    profile += "Gender : "+datapatient.sex + "<br>";
-                   profile += '<a class="btn btn-large btn-primary" href="javascript:viewpid();"  data-target="#viewdpate" data-toggle="modal" >';
+                   profile += '<a class="btn btn-large btn-primary"  data-target="#viewdpate" data-toggle="modal" >';
                    profile +=	"View Data";
                    profile +=	'</a>';
                    profile +=	'<input type="hidden" id="patientkeye" value="'+patient.key+'">';
@@ -58,6 +59,7 @@
                    profile += '<hr class="soft" />';
                    profile += '<br>';
                 document.querySelector("tagprofile").innerHTML += profile;
+                viewpid();
                 $("#loader").hide();
                });
               }else{
@@ -105,7 +107,7 @@ function finddata() {
                    profile += "Birthday : "+weekday[d.getDay()]+" "+d.getDate()+" "+month_name[d.getMonth()] +" "+d.getFullYear()+ "<br>";
                    profile += "Age : "+age + "<br>";
                    profile += "Gender : "+datapatient.sex + "<br>";
-                   profile += '<a class="btn btn-large btn-primary" href="javascript:viewpid();" data-target="#viewdpate" data-toggle="modal" >';
+                   profile += '<a class="btn btn-large btn-primary"  data-target="#viewdpate" data-toggle="modal" >';
                    profile +=	"View Data";
                    profile +=	'</a>'; 
                    profile +=	'<input type="hidden" id="patientkeye" value="'+patient.key+'">';
@@ -192,26 +194,32 @@ function edit(){
   });
  }
 
-  // $('#viewbtn').on('click', function(){
-  //   console.log("tttttttttt");
-  //   var patientkeyi = document.querySelector("#patientkeye").value;
-  //   viewinf(patientkeyi);
-  // });
-
   function viewpid(){
-    console.log("test function ");
     var pid = document.querySelector("#patientkeye").value;;
     const  patientpid = firebase.database().ref('dataprofile').child(pid);
     const  faall = firebase.database().ref('dataparent/father').child(pid);
     const  mmall = firebase.database().ref('dataparent/mother').child(pid);
     patientpid.on('value',userpatient=> {
-      console.log("test pat======>",userpatient.val());
+      document.querySelector("#upafirstname").value= userpatient.val().firstname;
+    document.querySelector("#upalastname").value= userpatient.val().lastname;
+    document.querySelector("#upanickname").value = userpatient.val().nickname;
+    document.querySelector("#upaweight").value = userpatient.val().weight;
+    document.querySelector("#upaheight").value = userpatient.val().high;
+    document.querySelector("#upagender").value = userpatient.val().sex;
     });
     faall.on('value',pfa=> {
-      console.log("test pat fa======>",pfa.val());
+      document.querySelector("#pfafirstname").value = pfa.val().firstname;
+      document.querySelector("#pfalastname").value = pfa.val().lastname;
+      document.querySelector("#pfatel").value = pfa.val().telephone;
+      document.querySelector("#pfaaddress").value = pfa.val().address.city + "" +pfa.val().address.home +""+pfa.val().address.post +""+ pfa.val().address.country;
+     
     });
     mmall.on('value',pmo=> {
-      console.log("test pat=====mother=>",pma.val());
+      document.querySelector("#pmofirstname").value = pmo.val().firstname;
+      document.querySelector("#pmolastname").value = pmo.val().lastname;
+      document.querySelector("#pmotel").value = pmo.val().telephone;
+      document.querySelector("#pmoaddress").value = pmo.val().address.city + "" +pmo.val().address.home +""+pmo.val().address.post +""+ pmo.val().address.country;
+     
     });
   }
   

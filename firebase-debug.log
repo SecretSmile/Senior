@@ -39,3 +39,44 @@
 [info] i  hosting: Serving hosting files from: public
 [info] +  hosting: Local server: http://localhost:5000
 
+[debug] [2018-04-09T18:39:01.047Z] ----------------------------------------------------------------------
+[debug] [2018-04-09T18:39:01.063Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\acer\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-04-09T18:39:01.064Z] CLI Version:   3.17.2
+[debug] [2018-04-09T18:39:01.064Z] Platform:      win32
+[debug] [2018-04-09T18:39:01.064Z] Node Version:  v8.9.3
+[debug] [2018-04-09T18:39:01.065Z] Time:          Tue Apr 10 2018 01:39:01 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-04-09T18:39:01.066Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-04-09T18:39:01.215Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-04-09T18:39:01.216Z] > authorizing via signed-in user
+[debug] [2018-04-09T18:39:01.222Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-04-09T18:39:01.223Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/mt1dI5IQ4NmPc6NvlGNzhqbOja_GqP9kES0C-hXz554',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Tue Apr 10 2018 01:39:01 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-04-09T18:39:05.260Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-09T18:39:05.353Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/adhd-monitor  
+  
+ Tue Apr 10 2018 01:39:05 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-04-09T18:39:06.825Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-09T18:39:06.826Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/adhd-monitor/tokens  
+  
+ Tue Apr 10 2018 01:39:06 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-04-09T18:39:08.241Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'E:\projectweb\www\WebContent'...
+[info] 
+[debug] [2018-04-09T18:39:08.348Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/adhd-monitor  
+  
+ Tue Apr 10 2018 01:39:08 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-04-09T18:39:10.054Z] <<< HTTP RESPONSE 200
+[debug] [2018-04-09T18:39:10.056Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/770484970077/clients/_:getWebAppConfig  
+  
+ Tue Apr 10 2018 01:39:10 GMT+0700 (SE Asia Standard Time)
+[debug] [2018-04-09T18:39:11.216Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+

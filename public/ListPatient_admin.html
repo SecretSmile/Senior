@@ -127,7 +127,7 @@
                             <!-- Nav tabs -->
                             <ul class="nav nav-tabs" role="tablist">
                                 <li role="presentation" class="active"><a href="#child" aria-controls="child" role="tab" data-toggle="tab">Child</a>
-        
+                                    
                                 </li>
                                 <li role="presentation"><a href="#father" aria-controls="father" role="tab" data-toggle="tab">Father</a>
         
@@ -138,9 +138,83 @@
                             </ul>
                             <!-- Tab panes -->
                             <div class="tab-content">
-                                <div role="tabpanel" class="tab-pane active" id="child">child</div>
-                                <div role="tabpanel" class="tab-pane" id="father">father</div>
-                                <div role="tabpanel" class="tab-pane" id="mother">mother</div>
+                                <div role="tabpanel" class="tab-pane active" id="child">
+                                    <form role="form">
+                                    <div class="form-group">
+                                        <label for="firstname">
+                                            <span class=""></span> Firstname</label>
+                                        <input type="text" class="form-control" id="upafirstname"  disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastname">
+                                            <span class=""></span> Lastname</label>
+                                        <input type="text" class="form-control" id="upalastname" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nicknameNw"><span class=""></span>Nickname :</label>
+                                       <input type="text"class="form-control" id="upanickname" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nicknameNw"><span class=""></span>Sex :</label>
+                                       <input type="text"class="form-control" id="upagender" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="height">
+                                            <span class=""></span> Height</label>
+                                        <input type="text" class="form-control" id="upaheight" disabled>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="weight">
+                                            <span class=""></span> Weight</label>
+                                        <input type="text" class="form-control" id="upaweight" disabled>
+                                    </div>
+        
+                                </form>
+                            </div>
+                                <div role="tabpanel" class="tab-pane" id="father">       <form role="form">
+                                        <div class="form-group">
+                                            <label for="firstname">
+                                                <span class=""></span> Firstname</label>
+                                            <input type="text" class="form-control" id="pfafirstname"  disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastname">
+                                                <span class=""></span> Lastname</label>
+                                            <input type="text" class="form-control" id="pfalastname" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nicknameNw"><span class=""></span>Telephone :</label>
+                                           <input type="text"class="form-control" id="pfatel" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nicknameNw"><span class=""></span>Address :</label>
+                                            <textarea id="pfaaddress"rows="4" cols="50" disabled></textarea>
+                                        </div>
+                                       
+            
+                                    </form></div>
+                                <div role="tabpanel" class="tab-pane" id="mother"><form role="form">
+                                        <div class="form-group">
+                                            <label for="firstname">
+                                                <span class=""></span> Firstname</label>
+                                            <input type="text" class="form-control" id="pmofirstname"  disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastname">
+                                                <span class=""></span> Lastname</label>
+                                            <input type="text" class="form-control" id="pmolastname" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nicknameNw"><span class=""></span>Telephone :</label>
+                                           <input type="text"class="form-control" id="pmotel" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nicknameNw"><span class=""></span>Address :</label>
+                                            <textarea id="pmoaddress"rows="4" cols="50" disabled></textarea>
+                                        </div>
+                                       
+            
+                                    </form></div>
                             </div>
                         </div>
                     </div>
