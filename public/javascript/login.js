@@ -25,9 +25,12 @@ if(user){
                     user.delete().then(function() {
                         // User deleted.
                         alert('Invalid No Data');
+                        location.reload();
                     }).catch(function(error) {
                         // An error happened.
                         console.log("Error happen",error);
+                        alert('Invalid No Data');
+                        location.reload();
                     });
                 }
             });
@@ -70,9 +73,11 @@ btnlogin.addEventListener('click',e =>{
         user.delete().then(function() {
             // User deleted.
             window.alert("Email  or  password not correct.")
+            location.reload();
         }).catch(function(error) {
             // An error happened.
             window.alert("Email  or  password not sign up.")
+            location.reload();
         }); 
         });
     }

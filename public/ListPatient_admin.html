@@ -242,20 +242,35 @@
                                         <span class=""></span> Firstname</label>
                                     <input type="text" class="form-control" id="firstname" placeholder="Enter Firstname">
                                 </div>
+
                                 <div class="form-group">
                                     <label for="lastname">
                                         <span class=""></span> Lastname</label>
                                     <input type="text" class="form-control" id="lastname" placeholder="Enter Lastname">
                                 </div>
                                 <div class="form-group">
+                                        <label for="nickname">
+                                            <span class=""></span>Nickname</label>
+                                        <input type="text" class="form-control" id="nickname" placeholder="Enter Nickname">
+                                    </div>
+                                <div class="form-group">
                                     <label for="height">
                                         <span class=""></span> Height</label>
                                     <input type="text" class="form-control" id="height" placeholder="Enter Height">
                                 </div>
+                                
                                 <div class="form-group">
                                     <label for="weight">
                                         <span class=""></span> Weight</label>
                                     <input type="text" class="form-control" id="weight" placeholder="Enter Weight">
+                                </div>
+                                <div class="form-group">
+                                        <label for="gender"><span class=""></span>Gender :</label>
+                                        <input type="text" class="form-control" id="gender" disabled>
+                                </div>
+                                <div class="form-group">
+                                        <label for="birthdaye"><span class=""></span>Birthday :</label>
+                                        <input type="date"class="form-control" id="birthdaye" placeholder="Choose Birthday">
                                 </div>
     
                             </form>
@@ -263,7 +278,7 @@
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal">
                                 <span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                            <button type="submit" class="btn btn-success btn-default pull-right">
+                            <button type="button" id="editbtn"  class="btn btn-success btn-default pull-right">
                                 <span class="glyphicon glyphicon-ok"></span> Submit</button>
                         </div>
                     </div>

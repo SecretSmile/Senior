@@ -49,7 +49,7 @@
                    profile +=	'<a class="btn btn-large btn-primary" href="javascript:edit();">';
                    profile +=	"EDIT"; 
                    profile +=	'</a>';
-                   profile += '<a href="deletePatient.do?id=${pat.patientId}&caseid=${pat.patientId}" class="btn btn-info">';
+                   profile += '<a href="javascript:deletepid();" class="btn btn-info">';
                    profile += "DELETE";
                    profile += '</a>';
                    profile += '</div>';
@@ -59,8 +59,9 @@
                    profile += '<hr class="soft" />';
                    profile += '<br>';
                 document.querySelector("tagprofile").innerHTML += profile;
-                viewpid();
+                
                 $("#loader").hide();
+                viewpid();
                });
               }else{
                 finddata();
@@ -114,7 +115,7 @@ function finddata() {
                    profile +=	'<a class="btn btn-large btn-primary" href="javascript:edit();"  >';
                    profile +=	"EDIT"; 
                    profile +=	'</a>';
-                   profile += '<a href="deletePatient.do?id=${pat.patientId}&caseid=${pat.patientId}" class="btn btn-info">';
+                   profile += '<a href="javascript:deletepid();"  class="btn btn-info">';
                    profile += "DELETE";
                    profile += '</a>';
                    profile += '</div>';
@@ -140,10 +141,55 @@ function edit(){
   patientall.on('value',patient=>{
     document.querySelector("#firstname").value= patient.val().firstname;
     document.querySelector("#lastname").value= patient.val().lastname;
+    document.querySelector("#nickname").value= patient.val().nickname;
     document.querySelector("#weight").value = patient.val().weight;
     document.querySelector("#height").value = patient.val().high;
+    document.querySelector("#gender").value = patient.val().sex;
+    document.querySelector("#birthdaye").value = patient.val().birthday;
+    
+  });
+  $('#editbtn').on('click', function(){
+    var data ={
+    firstname :document.querySelector("#firstname").value,
+    lastname :  document.querySelector("#lastname").value,
+    nickname : document.querySelector("#nickname").value,
+    weight : document.querySelector("#weight").value ,
+    high : document.querySelector("#height").value,
+    sex : document.querySelector("#gender").value,
+    birthday : document.querySelector("#birthdaye").value 
+  }
+
+  var updates = {};
+  updates['/dataprofile/'+patientkeyi] =data;
+  firebase.database().ref().update(updates);
+    alert("The data patient will  edit success.");
+    location.reload();
   });
  
+ }
+ function deletepid() {
+  var patientkeyi = document.querySelector("#patientkeye").value;
+  const type = firebase.database().ref('alluser').orderByChild('id');
+  type.once('value',typesu=> {
+    typesu.forEach(u=>{
+      const userdr = firebase.database().ref().child('alluser/'+u.key);
+      userdr.on('value',perdoc=> {
+        if(perdoc.val().id==patientkeyi.toString()){
+          var  datadr = firebase.database().ref().child('dataprofile/'+patientkeyi);
+          datadr.remove().then(function(){
+            firebase.database().ref().child('dataparent/father/'+patientkeyi).remove();
+            firebase.database().ref().child('dataparent/mother/'+patientkeyi).remove();
+            firebase.database().ref().child('alluser/'+perdoc.key).remove();
+            alert("The data patient will  remove success.");
+            location.reload();
+            console.log("REMOVE SUCCESS.");
+          }).catch(function(error){
+            console.log("ERROR MESSAGE",error.message);
+          });
+        }
+      });
+    });
+  });
  }
   function parseDate(dateStr) {
     var dateParts = dateStr.split("/");

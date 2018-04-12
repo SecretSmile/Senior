@@ -50,11 +50,8 @@
                             <i class="icon-user "></i>&nbsp;
                             <i class="icon-chevron-down "></i>
                         </a>
-
                         <ul class="dropdown-menu dropdown-user">
-                            <li>
-                                <a href="login.do"><i class="icon-signout"></i> Logout </a>
-                            </li>
+                            <li><a href="login.do"><i class="icon-signout"></i> Logout </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -79,22 +76,14 @@
                 <li class="panel">
                     <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#pagesr-nav">
                         <i class="icon-table"></i> List Doctor
-                        <span class="pull-right">
-                            <i class="icon-angle-left"></i>
-                        </span>
+                        <span class="pull-right"><i class="icon-angle-left"></i></span>
                         &nbsp;
                     </a>
-                    <ul class="collapse" id="pagesr-nav">
-                        <li>
-                            <a href="javascript:newdoctor();">
-                                <i class="icon-angle-right"></i> Add New Doctor </a>
-                        </li>  
+                    <ul class="collapse" id="pagesr-nav"><li><a href="javascript:newdoctor();">
+                        <i class="icon-angle-right"></i> Add New Doctor </a></li>  
                     </ul>
                 </li>
-                <li>
-                    <a href="javascript:bhome();">
-                        <i class="icon-signin"></i>Back Page </a>
-                </li>
+                <li><a href="javascript:bhome();"><i class="icon-signin"></i>Back Page </a></li>
             </ul>
         </div>
         <div id="content">
@@ -127,33 +116,34 @@
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4>
                                 <span class=""></span> My Case
-                                <button type="submit" class="btn btn-success btn-default" data-dismiss="modal" onclick="addCase()">
+                                <button type="submit" class="btn btn-success btn-default" data-dismiss="modal" id="dk"onclick="addCase()">
                                     <span class="glyphicon glyphicon-plus"></span>
                                 </button>
                             </h4>
                         </div>
                         <div class="modal-body" style="padding:40px 60px;">
-                            <input type="text" class="form-control" style="display:inline" id="drfname" placeholder="Search...">
-                            <button type="submit" class="btn btn-default pull-right">
-                                <span class="glyphicon glyphicon-search"></span> Search</button>
+                            <input type="text" class="form-control" style="display:inline" id="searchnamecase" placeholder="Search...">
+                            <button type="submit" class="btn btn-default pull-right" onclick="finddataincase()"><span class="glyphicon glyphicon-search"></span> Search</button>
                         </div>
                         
                         <div class="modal-footer"  align="center">
                             <p id="demo"></p>
                             <table class="table table-striped" id="ts" style="display:none" >
-                            <thead>
-                                        <tr>
+                                <thead>
+                                    <tr>
                                         <th>#id</th>
-                                         <th>First name</th>'
-                                         <th>Last name</th>
-                                        <th>View</th>
-                                     </tr>
-                            </thead>
-                            <tbody id="dataview">
-                            </tbody>
+                                        <th>First name</th>
+                                        <th>Last name</th>
+                                        <th>Sex</th>
+                                        <th>Age</th>
+                                        <th>Weight</th>
+                                        <th>Height</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dataview">
+                                </tbody>
                             </table>
                         </div>
-    
                     </div>
                 </div>
             </div>
@@ -165,46 +155,34 @@
                     <div class="modal-content">
                         <div class="modal-header" style="padding:35px 50px;">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4>
-                                <span class=""></span> Edit Profile</h4>
+                            <h4><span class=""></span> Edit Profile</h4>
                         </div>
                         <div class="modal-body" style="padding:40px 50px;">
                             <form role="form">
                                 <div class="form-group">
-                                            <label for="id">
-                                                <span class=""></span>My Id</label>
-                                            <input type="text" class="form-control" id="id"  disabled>
+                                    <label for="id"><span class=""></span>My Id</label>
+                                    <input type="text" class="form-control" id="id"  disabled>
                                 </div>
                                 <div class="form-group">
-                                    <label for="firstname">
-                                        <span class=""></span> Firstname</label>
+                                    <label for="firstname"><span class=""></span> Firstname</label>
                                     <input type="text" class="form-control" id="firstname" placeholder="Enter Firstname">
                                 </div>
                                 <div class="form-group">
-                                    <label for="lastname">
-                                        <span class=""></span> Lastname</label>
+                                    <label for="lastname"><span class=""></span> Lastname</label>
                                     <input type="text" class="form-control" id="lastname" placeholder="Enter Lastname">
                                 </div>
                                 <div class="form-group">
-                                    <label for="Telephone">
-                                        <span class=""></span> Telephone</label>
+                                    <label for="Telephone"><span class=""></span> Telephone</label>
                                     <input type="text" class="form-control" id="Telephone" placeholder="Enter Telephone">
                                 </div>
                                 <div class="form-group">
-                                        <label for="birthday">
-                                            <span class=""></span>BirthDay</label>
-                                        <input type="date" class="form-control" id="birthday"  >
-                                    </div>
-                                    <div class="form-group">
-                                    <label for="gen"><span class=""></span>Gender  :</label>
-                                    <!-- <input type="radio" id="gender"  value="male"><label for="gender">Male</label>
-                             <input type="radio" id="gender"  value="female"><label for="gender">Female</label> -->
-                            </div>
+                                    <label for="birthday"><span class=""></span>BirthDay</label>
+                                    <input type="date" class="form-control" id="birthday" data-toggle="tooltip" title="Choose date be correct!" >
+                                </div>
                                 <div class="form-group">
-                                        <label for="department">
-                                            <span class=""></span>Department</label>
-                                        <input type="text" class="form-control" id="department"  disabled>
-                                    </div>
+                                    <label for="department"><span class=""></span>Department</label>
+                                    <input type="text" class="form-control" id="department"  disabled>
+                                </div>
                             </form>
                         </div>
                         <div class="modal-footer">
@@ -214,7 +192,6 @@
                                 <span class="glyphicon glyphicon-ok" ></span> Submit</button>
                         </div>
                     </div>
-    
                 </div>
             </div>
 
@@ -227,20 +204,30 @@
             <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                     <h4 class="modal-title">Add case</h4><br>
-                                      <input for="ss"type="search" class="form-control"  placeholder="Enter ID" style="width:70%;align:center;" >
-                                      <button id="ss"type="submit" class="btn" style="width:20%;align:right;">Search</button>                     
+                    <form class="example" style="margin:auto;max-width:300px">
+                        <input type="text" id="fpcase" placeholder="Enter firstname.." >
+                        <button type="button" onclick="finde()"><i class="fa fa-search"></i></button>
+                      </form>                    
             </div>
-            <div class="modal-body">
+            <div class="modal-body" aria-hidden="true">
                     <form role="form">
-                            <div class="form-group">
-                                        <label for="iddd"><span class=""></span>My Id</label>
-                                        <input type="text" class="form-control" id="iddd"   placeholder="Enter U"  disabled>
-                            </div>
+                        <div class="form-group">
+                            <label for="idcase"><span class=""></span>My Id</label>
+                            <input type="text" class="form-control" id="idcase"   placeholder="Enter U"  disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="fcase"><span class=""></span>Firstname :</label>
+                            <input type="text" class="form-control" id="fcase"   placeholder="Enter U"  disabled>
+                        </div>
+                        <div class="form-group">
+                            <label for="lcase"><span class=""></span>Lastname :</label>
+                            <input type="text" class="form-control" id="lcase"   placeholder="Enter U"  disabled>
+                        </div>
                     </form>
             </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Add case</button>
+                        <button type="button" class="btn btn-primary" id="addcc">Add case</button>
                     </div>
                     </div><!-- /.modal-content -->
                 </div><!-- /.modal-dialog -->

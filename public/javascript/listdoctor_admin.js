@@ -135,14 +135,13 @@ function finddata() {
 }
 
 function view(doctorkey){
-  console.log("test============>",doctorkey);
+  document.querySelector("#dk").value = doctorkey;
   document.querySelector("#dataview").innerHTML = '';
   document.querySelector("#demo").innerHTML = '';
   $("#viewcase").modal();
   $('#ts').css( 'display', 'none' );
       const typeuser= firebase.database().ref().child('case/'+doctorkey);
        typeuser.on('value',userpatient=> {
-
         if(userpatient.val() !=null){
           for (i = 0; i < userpatient.val().length; i++) {
           const  dataprofile = firebase.database().ref('dataprofile/'+userpatient.val()[i]);    
@@ -158,7 +157,10 @@ function view(doctorkey){
               profile +=  '<td>'+patient.key+'</td>';
               profile += ' <td>'+datapatient.firstname + '</td>';
               profile += '<td>'+datapatient.lastname + '</td>';
-              profile += '<td><a href="listheartratebydoctor.do?id=${pt.patient.patientId}&&doctorid=${doctorId}">View</a></td>';
+              profile += '<td>'+datapatient.sex + '</td>';
+              profile += '<td>'+age + '</td>';
+              profile += '<td>'+datapatient.weight + '</td>';
+              profile += '<td>'+datapatient.high + '</td>';
               profile += '</tr>';
              document.querySelector("#dataview").innerHTML += profile;
              $('#ts').css( 'display', 'block' );
@@ -174,6 +176,7 @@ function view(doctorkey){
 
 function edit(doctorkey){
   $("#myModal").modal();
+  $('#birthday').tooltip('hide');
   const  doctorall = firebase.database().ref().child('datadoctor/'+doctorkey);
   doctorall.on('value',value=>{
     document.querySelector("#id").value = value.key;
@@ -295,7 +298,49 @@ function calculateAge (dateOfBirth, dateToCalculate) {
     }
     return age;
 }
-
+function finddataincase() {
+  document.querySelector("#dataview").innerHTML = '';
+  const type = firebase.database().ref('alluser').orderByChild('id');
+      type.once('value',typesu=> {
+        typesu.forEach(u=>{
+          const typeuser= firebase.database().ref().child('alluser/'+u.key);
+          typeuser.on('value',userdoctor=> {
+             var k = userdoctor.val();
+             var searchall = document.getElementById('searchall').value;
+             const  sallpp = firebase.database().ref().child('dataprofile/'+k.id).orderByValue().equalTo(searchnamecase);
+             if(k.who=="parent"){
+              if(searchnamecase!=null){
+                  sallpp.on('value', pp=>{  
+                    if(pp.val()!=null){
+                      const  dataparent = firebase.database().ref('dataprofile/'+pp.key);              
+                      dataparent.on('value', patient=>{    
+                        var datapatient = patient.val(); 
+                        var d = new Date(datapatient.birthday);
+                        var month_name= ["January","February","March","April","May","June","July","August","September","October","November","December"];
+                        var weekday = [ "Sunday","Monday", "Tuesday","Wednesday", "Thursday" ,"Friday","Saturday"];
+                        var db = d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
+                        var age = calculateAge(parseDate(db), new Date());
+                        var profile = "";
+                        console.log("test=========>",datapatient.weight);
+                        profile +=  '<tr>';
+                        profile +=  '<td>'+patient.key+'</td>';
+                        profile += ' <td>'+datapatient.firstname + '</td>';
+                        profile += '<td>'+datapatient.lastname + '</td>';
+                        profile += '<td>'+datapatient.sex + '</td>';
+                        profile += '<td>'+age + '</td>';
+                        profile += '<td>'+datapatient.weight + '</td>';
+                        profile += '<td>'+datapatient.high + '</td>';
+                        profile += '</tr>';
+                       document.querySelector("#dataview").innerHTML += profile;
+                    });
+                    }
+                  });
+              }
+             }
+          }); 
+        }); 
+      });
+}
 function bhome(){
   window.location.assign("home_admin");
  }
@@ -331,10 +376,68 @@ function isDate(txtDate) {
 
 function addCase() {
   $("#caseModal").modal();
+  $('#caseModal').on('hidden.bs.modal', function (e) {
+    $(this).find("input,textarea,select").val('').end().find("input[type=text], input[type=radio]")
+         .prop("checked", "")
+         .end();
+  });
 }
-
+function finde(){
+  const type = firebase.database().ref('alluser').orderByChild('id');
+  type.once('value',typesu=> {
+    typesu.forEach(u=>{
+      const typeuser= firebase.database().ref().child('alluser/'+u.key);
+      typeuser.on('value',userp=> {
+         var scaseall = document.getElementById('fpcase').value;
+         const  sall = firebase.database().ref().child('dataprofile/'+userp.val().id).orderByValue().equalTo(scaseall);
+         if(userp.val().who=="parent"){
+          if(scaseall!=null){
+              sall.on('value', pp=>{  
+                if(pp.val()!=null){
+                  const  spp = firebase.database().ref().child('dataprofile/'+pp.key);
+                  spp.on('value',sppa=> {
+                  document.querySelector("#idcase").value = pp.key;
+                  document.querySelector("#fcase").value = sppa.val().firstname;
+                  document.querySelector("#lcase").value = sppa.val().lastname;
+                  const tcase= firebase.database().ref().child('case/'+document.querySelector("#dk").value);
+                  tcase.once('value',tdcase=> {
+                  $('#addcc').on('click', function(){
+                      if(tdcase.val()==null){
+                        var s = 0;
+                        var data ={0:document.querySelector("#idcase").value};
+                        var updates = {};
+                        updates['/case/'+document.querySelector("#dk").value] = data ;
+                        firebase.database().ref().update(updates);
+                        $('#caseModal').css( 'display', 'none' );
+                      }else {
+                        for(i in tdcase.val()){
+                          if(tdcase.val()[i] !=  document.querySelector("#idcase").value){
+                      var updates = {};
+                      updates['/case/'+document.querySelector("#dk").value+'/'+tdcase.val().length] = document.querySelector("#idcase").value ;
+                      firebase.database().ref().update(updates);
+                      $('#caseModal').css( 'display', 'none' );
+                          }
+                        }
+                      }
+                      view(document.querySelector("#dk").value);
+                    });
+                   
+                  });
+                });
+              }
+              });
+                }}
+      });
+    });
+  });
+}
 function saveChanges(){
-  $('#myModal').hide();
+  var d = new Date(document.querySelector("#birthday").value);
+  var db = d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
+  var age = calculateAge(parseDate(db), new Date());
+
+  if(age >25 && age < 60){
+    $('#myModal').hide();
   var data ={
       firstname :  document.querySelector("#firstname").value ,
       lastname : document.querySelector("#lastname").value ,
@@ -350,5 +453,10 @@ function saveChanges(){
   alert("The profile will be  change.");
   document.getElementById('searchall').value =  document.querySelector("#firstname").value;
   finddata();
+
+   }else{
+    $('#myModal').modal();
+    $('#birthday').tooltip('show');
+ }
 }
 
